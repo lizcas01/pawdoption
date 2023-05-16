@@ -1,0 +1,22 @@
+{
+  "name": "pawdoption",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "develop": "concurrently \"cd server && npm run watch\" \"cd client && npm start\""
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/lizcas01/pawdoption.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/lizcas01/pawdoption/issues"
+  },
+  "homepage": "https://github.com/lizcas01/pawdoption#readme",
+  "devDependencies": {
+    "concurrently": "^8.0.1"
+  }
+}
