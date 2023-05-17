@@ -1,6 +1,7 @@
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { ApolloClient, ApolloProvider, InMemoryCache } from '@apollo/client';
+import Default from './layouts/Default';
 import Home from './pages/Home';
 import About from './pages/About';
 import Matchup from './pages/Matchup';
@@ -17,30 +18,32 @@ function App() {
   return (
     <ApolloProvider client={client}>
       <Router>
-        <div className="flex-column justify-center align-center min-100-vh bg-primary">
-          <Routes>
-            <Route 
-              path="/" 
-              element={<Home />}
-            />
-            <Route 
-              path="/about" 
-              element={<About />}
-            />
-            <Route 
-              path="/matchup" 
-              element={<Matchup />}
-            />
-            <Route 
-              path="/matchup/:id" 
-              element={<Vote />}
-            />
-            <Route 
-              path="*"
-              element={<NotFound />}
-            />
-          </Routes>
-        </div>
+        <Default>
+          <div className="bg-white">
+            <Routes>
+              <Route
+                path="/"
+                element={<Home />}
+              />
+              <Route
+                path="/about"
+                element={<About />}
+              />
+              <Route
+                path="/matchup"
+                element={<Matchup />}
+              />
+              <Route
+                path="/matchup/:id"
+                element={<Vote />}
+              />
+              <Route
+                path="*"
+                element={<NotFound />}
+              />
+            </Routes>
+          </div>
+        </Default>
       </Router>
     </ApolloProvider>
   );

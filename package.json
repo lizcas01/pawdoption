@@ -21,6 +21,7 @@
   },
   "dependencies": {
     "bootstrap": "^5.2.3",
+    "react-icons": "^4.8.0",
     "sass": "^1.62.1"
   }
 }
