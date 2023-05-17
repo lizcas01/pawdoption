@@ -10,6 +10,7 @@ const Home = () => {
     fetchPolicy: "no-cache"
   });
 
+  // TODO: Remove this mock data and replace it with the data from the database
   const dogs = [
     {
       name: "Buddy",
