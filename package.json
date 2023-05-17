@@ -18,5 +18,10 @@
   "homepage": "https://github.com/lizcas01/pawdoption#readme",
   "devDependencies": {
     "concurrently": "^8.0.1"
+  },
+  "dependencies": {
+    "bootstrap": "^5.2.3",
+    "react-icons": "^4.8.0",
+    "sass": "^1.62.1"
   }
 }
