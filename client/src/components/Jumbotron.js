@@ -12,8 +12,8 @@ function Jumbotron() {
                 <Col className="text-center d-flex align-center justify-center">
                     <Image src="/images/logo.png" fluid style={image} />
                     <div>
-                    <h1>Pawdoption</h1>
-                    <h2>Find your new best friend</h2>
+                        <h1>Pawdoption</h1>
+                        <h2>Find your new best friend</h2>
                     </div>
                 </Col>
             </Row>
