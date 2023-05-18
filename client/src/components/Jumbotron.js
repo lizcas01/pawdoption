@@ -7,7 +7,7 @@ const image = {
 
 function Jumbotron() {
     return (
-        <Container fluid className="bg-primary">
+        <Container fluid className="bg-primary bg-gradient border-bottom">
             <Row>
                 <Col className="text-center d-flex align-center justify-center">
                     <Image src="/images/logo.png" fluid style={image} />
