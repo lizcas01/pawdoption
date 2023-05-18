@@ -8,6 +8,7 @@ import Login from '../pages/Login';
 import NotFound from '../pages/NotFound';
 import Footer from "../components/Footer"
 import Signup from '../pages/Signup';
+import Auth from "../utils/auth";
 
 
 const header = {
@@ -55,6 +56,14 @@ const routes = {
     }
 }
 
+
+const updatedRoutes = { ...routes }; // Create a copy of the routes object
+
+if (Auth.loggedIn()) {
+  // Set displayInNav to false for specific routes when the user is logged in
+  updatedRoutes["/login"].displayInNav = false;
+  updatedRoutes["/signup"].displayInNav = false;
+}
 
 const Default = ({ children }) => {
 

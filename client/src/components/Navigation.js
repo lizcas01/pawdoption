@@ -1,4 +1,5 @@
 import { Navbar, Container, Nav, Button } from 'react-bootstrap';
+import Auth from "../utils/auth";
 
 const Navigation = (props) => {
 
@@ -21,12 +22,17 @@ const Navigation = (props) => {
     }
   }
 
+  const logout = (event) => {
+    event.preventDefault();
+    Auth.logout();
+  };
+
   return (
     <Navbar bg="white" variant="dark">
       <Container className="justify-content-center">
         <Nav className="justify-content-evenly" style={styles.navWidth}>
           {Object.keys(props.options).map((url, index) => {
-            if(props.options[url].displayInNav){
+            if (props.options[url].displayInNav) {
               return (
                 <Button
                   key={index}
@@ -38,6 +44,17 @@ const Navigation = (props) => {
               )
             }
           })}
+          {Auth.loggedIn() && (
+            <>
+              <div className='d-flex align-items-center'>
+
+                <span>Welcome, {Auth.getProfile().data.username}!</span>
+                <Button variant="outline-primary" className="m-2" onClick={logout}>
+                  Logout
+                </Button>
+              </div>
+            </>
+          )}
         </Nav>
       </Container>
     </Navbar>
