@@ -1,4 +1,3 @@
-import { Link } from 'react-router-dom';
 import { useQuery } from '@apollo/client';
 import { QUERY_MATCHUPS } from '../utils/queries';
 import { Container, Row, Col, Card, Button, Carousel, Image } from 'react-bootstrap';
@@ -90,7 +89,7 @@ const Home = () => {
           <Carousel>
             {dogs.map((dog, index) => (
               <Carousel.Item key={index}>
-                {/* TODO */}
+                {/* TODO link to dog */}
                 <a href="#">
                 <Image 
                   className="d-block w-100"
