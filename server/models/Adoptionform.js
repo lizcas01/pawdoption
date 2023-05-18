@@ -14,7 +14,7 @@ const adoptionFormSchema = new Schema({
         required: true,
     },
     phone_number: {
-        type: Integar,
+        type: Number,
         required: true,
     },
     description: {
