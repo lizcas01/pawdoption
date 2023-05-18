@@ -1,17 +1,17 @@
 import React from 'react';
-import { useLocation } from 'react-router-dom';
+import { Container, Row, Col, Image } from 'react-bootstrap';
 
-function NotFound() {
-  let location = useLocation();
-  return (
-    <div className="card bg-white card-rounded w-50">
-      <div className="card-header bg-dark text-center">
-        <h1>
-          No match for <code>{location.pathname}</code>
-        </h1>
-      </div>
-    </div>
-  );
+const NotFound = () => {
+    return (
+        <Container className="my-3">
+            
+            <Row className="align-items-center my-5 justify-content-evenly">
+                <Col md={12} className="text-center">
+                    <Image src="https://www.cdgi.com/wp-content/uploads/2019/05/404-Pages.jpg" fluid />
+                </Col>
+            </Row>
+        </Container>
+    );
 }
 
-export default NotFound;
+export default NotFound
