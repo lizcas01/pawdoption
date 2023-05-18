@@ -85,7 +85,7 @@ const Home = () => {
           <Carousel>
             {dogs.map((dog, index) => (
               <Carousel.Item key={index}>
-                {/* TODO */}
+                {/* TODO link to dog */}
                 <a href="#">
                 <Image 
                   className="d-block w-100"
