@@ -13,6 +13,12 @@ type Auth {
   token: ID!
   user: User
 }
+type AdoptionForm {
+  first_name: String!
+  last_name: String!
+  phone_number: Int
+  description: String!
+}
 
 type Query {
   users: [User]
@@ -21,6 +27,7 @@ type Query {
  
   type Mutation {
     addUser(username: String!, email: String!, password: String!): Auth
+    newAdoptionForm(first_name: String!, last_name: String!, phone_number: Int, description: String!): AdoptionForm
     login(email: String!, password: String!): Auth
   }
 `;
