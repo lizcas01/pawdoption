@@ -4,8 +4,8 @@ import { ApolloClient, ApolloProvider, InMemoryCache } from '@apollo/client';
 import Default from './layouts/Default';
 import Home from './pages/Home';
 import About from './pages/About';
-import Matchup from './pages/Matchup';
-import Vote from './pages/Vote';
+import Signup from './pages/Signup';
+import Login from './pages/Login';
 import NotFound from './pages/NotFound';
 import './styles/index.scss'
 
@@ -29,13 +29,13 @@ function App() {
                 path="/about"
                 element={<About />}
               />
-              <Route
-                path="/matchup"
-                element={<Matchup />}
+            <Route 
+                path="/login" 
+                element={<Login />} 
               />
-              <Route
-                path="/matchup/:id"
-                element={<Vote />}
+              <Route 
+                path="/signup" 
+                element={<Signup />} 
               />
               <Route
                 path="*"

@@ -3,8 +3,9 @@ import Jumbotron from '../components/Jumbotron';
 import Navigation from "../components/Navigation"
 import Home from "../pages/Home"
 import About from "../pages/About"
+import Login from '../pages/Login';
 import Footer from "../components/Footer"
-import { Spinner } from 'react-bootstrap';
+import Signup from '../pages/Signup';
 
 
 const header = {
@@ -23,7 +24,16 @@ const routes = {
         thumbnail: "https://a-static.besthdwallpaper.com/australian-shepherd-dog-wallpaper-1920x1280-54743_38.jpg",
         component: <About />
     },
+    "Login": {
+        thumbnail: "https://a-static.besthdwallpaper.com/australian-shepherd-dog-wallpaper-1920x1280-54743_38.jpg",
+        component: <Login />
+    },
+    "Signup": {
+        thumbnail: "https://a-static.besthdwallpaper.com/australian-shepherd-dog-wallpaper-1920x1280-54743_38.jpg",
+        component: <Signup />
+    },
 }
+
 
 const Default = ({ children }) => {
 

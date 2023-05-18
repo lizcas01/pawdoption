@@ -1,13 +1,9 @@
-import { useQuery } from '@apollo/client';
-import { QUERY_MATCHUPS } from '../utils/queries';
 import { Container, Row, Col, Card, Button, Carousel, Image } from 'react-bootstrap';
 import { FaHandsHelping, FaHome } from "react-icons/fa";
 import { BiDonateHeart } from "react-icons/bi";
 
 const Home = () => {
-  const { loading, data } = useQuery(QUERY_MATCHUPS, {
-    fetchPolicy: "no-cache"
-  });
+  
 
   // TODO: Remove this mock data and replace it with the data from the database
   const dogs = [
