@@ -1,5 +1,5 @@
 const { AuthenticationError } = require('apollo-server-express');
-const { User, AdoptionForm } = require('../models');
+const { User, AdoptionForm, Dogs } = require('../models');
 const { signToken } = require('../utils/auth');
 
 const resolvers = {
@@ -10,6 +10,12 @@ const resolvers = {
     user: async (parent, { username }) => {
       return User.findOne({ username }).populate('thoughts');
     },
+    dogs: async () => {
+      return Dogs.find();
+    },
+    dog: async (parent, { id }) => {
+      return Dogs.findById(id);
+    }
   },
   Mutation: {
     addUser: async (parent,args) => {
@@ -38,6 +44,18 @@ const resolvers = {
       const adoptionForm = await AdoptionForm.create(args);
       return adoptionForm
 
+    },
+    addDog: async(parent, args) => {
+      const dog = await Dogs.create(args);
+      return dog;
+    },
+    updateDog: async (parent, { id, ...args }) => {
+      const updatedDog = await Dogs.findByIdAndUpdate(id, args, { new: true });
+      return updatedDog;
+    },
+    deleteDog: async (parent, { id }) => {
+      await Dogs.findByIdAndDelete(id);
+      return 'Dog deleted successfully';
     }
   },
 };
