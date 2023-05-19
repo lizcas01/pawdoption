@@ -10,7 +10,9 @@ const Footer = () => {
                     </Col>
 
                     <Col sm={4}>
-                        <Button variant="outline-white" size="sm">Click to Donate</Button>
+                    <form action="/create-checkout-session" method="POST">
+                        <Button variant="outline-white" size="sm" type="submit">Click to Donate</Button>
+                    </form>
                     </Col>
 
                     <Col sm={4}>
