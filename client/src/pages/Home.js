@@ -73,7 +73,9 @@ const Home = () => {
               <Card.Text>
                 You can make a difference.
               </Card.Text>
-              <Button variant="outline-primary">Go somewhere</Button>
+              <form action="/create-checkout-session" method="POST">
+                <Button variant= "outline-primary"type="submit">Donate</Button>
+              </form>
             </Card.Body>
           </Card>
         </Col>
