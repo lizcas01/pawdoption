@@ -13,9 +13,6 @@ const resolvers = {
     dogs: async () => {
       return Dogs.find();
     },
-    dog: async (parent, { id }) => {
-      return Dogs.findById(id);
-    }
   },
   Mutation: {
     addUser: async (parent,args) => {
