@@ -9,7 +9,7 @@ import NotFound from '../pages/NotFound';
 import Footer from "../components/Footer"
 import Signup from '../pages/Signup';
 import Auth from "../utils/auth";
-
+import Apply from "../pages/Apply";
 
 const header = {
     position: "sticky",
@@ -33,6 +33,13 @@ const routes = {
         displayInNav: true,
         displayParallax: true
     },
+    "/apply": {
+        name: "Apply",
+        thumbnail: "https://a-static.besthdwallpaper.com/australian-shepherd-dog-wallpaper-1920x1280-54743_38.jpg",
+        component: <Apply />,
+        displayInNav: true,
+        displayParallax: true
+    }, 
     "/login": {
         name: "Login",
         thumbnail: "https://a-static.besthdwallpaper.com/australian-shepherd-dog-wallpaper-1920x1280-54743_38.jpg",

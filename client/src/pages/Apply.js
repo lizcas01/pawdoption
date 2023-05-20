@@ -1,11 +1,11 @@
 import React from 'react';
-import { Container, Row, Col, Section } from 'react-bootstrap';
+import { Container, Row, Col, Section, P } from 'react-bootstrap';
 
 const styles = {
   Container: {
     height: "500",
     width: "300px",
-  }
+  },
 }
 
 const Apply = () => {
@@ -107,7 +107,7 @@ const Apply = () => {
           </Col>
         </Row>
 
-        <Row class="col-md-12 text-center">
+        <Row class="form-group">
               <button type="button" class="btn btn-secondary btn-lg btn-block">Submit</button>
               <label class="form-label"></label>
         </Row>
