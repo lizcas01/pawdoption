@@ -11,10 +11,12 @@ const resolvers = {
       return User.findOne({ username });
     },
     dogs: async () => {
-      return Dog.find();
+      const dog = await Dog.find();
+      console.log(dog);
+      return dog;
     },
     dog: async (parent, { dogId }) => {
-      return Dog.findOne({ dogId });
+      return Dog.findOne({ _id: dogId });
     },
       
   },
@@ -46,8 +48,8 @@ const resolvers = {
       return adoptionForm
 
     },
-    newDog: async (parent, args) => {
-      const dog = await Dogs.create(args);
+    addDog: async (parent, args) => {
+      const dog = await Dog.create(args);
       return dog;
     }
   },

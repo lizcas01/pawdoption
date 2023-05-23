@@ -1,4 +1,4 @@
-import React, {  } from 'react';
+import React, { } from 'react';
 import { Container, Row, Col } from 'react-bootstrap';
 
 import { useQuery } from '@apollo/client';
@@ -17,31 +17,43 @@ import { QUERY_DOGS } from '../utils/queries';
 
 
 
-const DogsList = ({dogs}) => {
+const DogsList = () => {
 
-  // const { data } = useQuery(QUERY_DOGS);
-  // const dogs = data?.dogs;
-  console.log(dogs);
+  const { loading, data } = useQuery(QUERY_DOGS);
+
+  if (loading) {
+    return <div>Loading...</div>;
+  }
+
+  // if (error) {
+  //   return <div>Error: {error.message}</div>;
+  // }
+
+  const dogs = data?.dogs;
+  console.log(data);
+
   return (
-    
+
     <Container>
       <Row>
         <Col className="text-center">
           <h1>Dogs Available for Adoption</h1>
-        </Col> 
-        </Row>
-        {/* {dogs.map(dog => (
-          <Col key={dog._id} className="text-center">
-            <div className="card mb-3">
-              <img src={dog.image} alt={dog.name} style={styles.images} />
-              <div className="card-body">
-                <h4 className="card-title">{dog.name}</h4>
-                <p className="card-text">Breed: {dog.breed}</p>
-                <p className="card-text">Age: {dog.age}</p>
-              </div>
+        </Col>
+      </Row>
+
+      {dogs && dogs.map((dog) => (
+        <Col key={dog._id} className="text-center">
+          <div className="card mb-3">
+            {/* <img src={dog.picture} alt={dog.name} style={styles.images} /> */}
+            <div className="card-body">
+              <h4 className="card-title">{dog.name}</h4>
+              <p className="card-text">Breed: {dog.breed}</p>
+              <p className="card-text">Age: {dog.age}</p>
+              <p className="card-text">Age: {dog.size}</p>
             </div>
-          </Col>
-        ))} */}
+          </div>
+        </Col>
+      ))}
     </Container>
   )
 }

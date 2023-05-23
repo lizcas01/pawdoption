@@ -26,8 +26,9 @@ type Dog {
   age: String!
   size: String!
   gender: String!
-  image: String
+  picture: String
   description: String!
+}
 
 type Query {
   users: [User]
@@ -40,7 +41,7 @@ type Query {
     addUser(username: String!, email: String!, password: String!): Auth
     newAdoptionForm(first_name: String!, last_name: String!, phone_number: Int, description: String!): AdoptionForm
     login(email: String!, password: String!): Auth
-    newDog(name: String!, breed: String!, age: String!, size: String!, gender: String!, image: String, description: String! ): Dog
+    addDog(name: String!, breed: String!, age: String!, size: String!, gender: String!, picture: String, description: String! ): Dog
   }
 `;
 
