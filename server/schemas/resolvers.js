@@ -1,18 +1,24 @@
 const { AuthenticationError } = require('apollo-server-express');
-const { User, AdoptionForm, Dogs } = require('../models');
+const { User, AdoptionForm, Dog } = require('../models');
 const { signToken } = require('../utils/auth');
 
 const resolvers = {
   Query: {
     users: async () => {
-      return User.find().populate('thoughts');
+      return User.find();
     },
     user: async (parent, { username }) => {
-      return User.findOne({ username }).populate('thoughts');
+      return User.findOne({ username });
     },
     dogs: async () => {
-      return Dogs.find();
+      const dog = await Dog.find();
+      console.log(dog);
+      return dog;
     },
+    dog: async (parent, { dogId }) => {
+      return Dog.findOne({ _id: dogId });
+    },
+      
   },
   Mutation: {
     addUser: async (parent,args) => {
@@ -42,17 +48,9 @@ const resolvers = {
       return adoptionForm
 
     },
-    addDog: async(parent, args) => {
-      const dog = await Dogs.create(args);
+    addDog: async (parent, args) => {
+      const dog = await Dog.create(args);
       return dog;
-    },
-    updateDog: async (parent, { id, ...args }) => {
-      const updatedDog = await Dogs.findByIdAndUpdate(id, args, { new: true });
-      return updatedDog;
-    },
-    deleteDog: async (parent, { id }) => {
-      await Dogs.findByIdAndDelete(id);
-      return 'Dog deleted successfully';
     }
   },
 };
