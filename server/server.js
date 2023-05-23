@@ -2,9 +2,11 @@ const express = require('express');
 const { ApolloServer } = require('apollo-server-express');
 const path = require('path');
 const { authMiddleware } = require('./utils/auth');
-
 const { typeDefs, resolvers } = require('./schemas');
 const db = require('./config/connection');
+const stripe = require('stripe')('sk_test_51N9HY7Ggv41H9K2AMU9Ssooe1aPIPmVh9gQQyZ3igQdpFkDcIfUoXQC6jCAXam5KJRCcppwxeRyvINyPj2mAbUKk00ZRgRNR7U')
+
+const YOUR_DOMAIN = 'http://localhost:3000'
 
 const PORT = process.env.PORT || 3001;
 const app = express();
@@ -23,6 +25,22 @@ if (process.env.NODE_ENV === 'production') {
 
 app.get('/', (req, res) => {
   res.sendFile(path.join(__dirname, '../client/build/index.html'));
+});
+
+app.post('/create-checkout-session', async (req, res) => {
+  const session = await stripe.checkout.sessions.create({
+    line_items: [
+      {
+        // Provide the exact Price ID (for example, pr_1234) of the product you want to sell
+        price: 'price_1N9IuSGgv41H9K2AItrtLiWc',
+        quantity: 1,
+      },
+    ],
+    mode: 'payment',
+    success_url: `${YOUR_DOMAIN}?success=true`,
+    cancel_url: `${YOUR_DOMAIN}?canceled=true`,
+  });
+  res.redirect(303, session.url);
 });
 
 

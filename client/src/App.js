@@ -7,7 +7,8 @@ import About from './pages/About';
 import Signup from './pages/Signup';
 import Login from './pages/Login';
 import NotFound from './pages/NotFound';
-import './styles/index.scss'
+import './styles/index.scss';
+import Apply from './pages/Apply';
 
 const client = new ApolloClient({
   uri: '/graphql',
@@ -29,6 +30,10 @@ function App() {
                 path="/about"
                 element={<About />}
               />
+              <Route
+               path="/apply"
+               element={<Apply />}
+             />
             <Route 
                 path="/login" 
                 element={<Login />} 

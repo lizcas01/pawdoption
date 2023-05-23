@@ -30,6 +30,17 @@ type Dog {
   description: String!
 }
 
+type Dogs {
+  _id: ID!
+  breed: String!
+  age: Int!
+  size: String!
+  picture: String!
+  name: String!
+  description: String!
+  gender: String!
+}
+
 type Query {
   users: [User]
   user(username: String!): User
