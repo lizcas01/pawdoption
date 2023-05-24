@@ -41,3 +41,14 @@ mutation AddDog( $name: String!, $breed: String!, $age: String!, $size: String!,
     }
   }
 `;
+
+export const ADD_ADOPTION_FORM = gql `
+mutation NewAdoptionForm($firstName: String!, $lastName: String!, $phoneNumber: String!, $email: String!, $dogId: ID!) {
+  newAdoptionForm(first_name: $firstName, last_name: $lastName, phone_number: $phoneNumber, email: $email, dogId: $dogId) {
+    first_name
+    last_name
+    phone_number
+    email
+  }
+}
+`;

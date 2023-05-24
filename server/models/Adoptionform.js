@@ -9,16 +9,17 @@ const adoptionFormSchema = new Schema({
     type: String,
     required: true,
   },
-  email: {
-    type: String,
-    required: true,
-  },
   phone_number: {
     type: Number,
     required: true,
   },
-  description: {
+  email: {
     type: String,
+    required: true,
+  },
+  dogId: {
+    type: Schema.Types.ObjectId,
+    ref: 'Dog',
     required: true,
   },
 });
