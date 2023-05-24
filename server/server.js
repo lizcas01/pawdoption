@@ -31,7 +31,6 @@ app.post('/create-checkout-session', async (req, res) => {
   const session = await stripe.checkout.sessions.create({
     line_items: [
       {
-        // Provide the exact Price ID (for example, pr_1234) of the product you want to sell
         price: 'price_1N9IuSGgv41H9K2AItrtLiWc',
         quantity: 1,
       },
@@ -42,7 +41,6 @@ app.post('/create-checkout-session', async (req, res) => {
   });
   res.redirect(303, session.url);
 });
-
 
 // Create a new instance of an Apollo server with the GraphQL schema
 const startApolloServer = async () => {

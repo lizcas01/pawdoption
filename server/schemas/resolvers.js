@@ -18,10 +18,12 @@ const resolvers = {
     dog: async (parent, { dogId }) => {
       return Dog.findOne({ _id: dogId });
     },
-      
+    adoptionForms: async () => {
+      return AdoptionForm.find();
+    },
   },
   Mutation: {
-    addUser: async (parent,args) => {
+    addUser: async (parent, args) => {
       const user = await User.create(args);
       const token = signToken(user);
       return { token, user };
@@ -43,22 +45,15 @@ const resolvers = {
 
       return { token, user };
     },
-    newAdoptionForm: async (parent, args)=>{
+    newAdoptionForm: async (parent, args) => {
       const adoptionForm = await AdoptionForm.create(args);
-      return adoptionForm
-
+      return adoptionForm;
     },
     addDog: async (parent, args) => {
       const dog = await Dog.create(args);
       return dog;
-    }
+    },
   },
 };
-// const obj = {
-//   name:"hello",
-//   value: "hello again"
-// }
 
-// const { name, value} = obj
-// { name, value}
 module.exports = resolvers;
