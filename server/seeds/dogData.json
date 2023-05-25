@@ -1,7 +1,7 @@
 [
     {
       "breed": "Golden Retriever",
-      "age": "2",
+      "age": "2 Years",
       "size": "Large",
       "picture":"https://images.pexels.com/photos/2253275/pexels-photo-2253275.jpeg",
       "name": "Rover",
@@ -10,7 +10,7 @@
     },
     {
       "breed": "Pitbull",
-      "age": "4",
+      "age": "4 Years",
       "size": "Large",
       "picture":"https://images.pexels.com/photos/6662721/pexels-photo-6662721.jpeg",
       "name": "Ollie",
@@ -19,7 +19,7 @@
     },
     {
       "breed": "Lab",
-      "age": "1",
+      "age": "1 Year",
       "size": "Medium",
       "picture":"https://images.pexels.com/photos/2742261/pexels-photo-2742261.jpeg",
       "name": "Annie",
@@ -28,7 +28,7 @@
     },
     {
       "breed": "German Shepard",
-      "age": "6",
+      "age": "6 Month",
       "size": "Large",
       "picture":"https://images.pexels.com/photos/333083/pexels-photo-333083.jpeg",
       "name": "Rexi",
@@ -37,7 +37,7 @@
     },
     {
       "breed": "Bichon Frise",
-      "age": "2",
+      "age": "2 Years",
       "size": "Small",
       "picture":"https://images.pexels.com/photos/16109762/pexels-photo-16109762/free-photo-of-bichon-frise-standing-on-a-tree-trunk.png",
       "name": "Max",
@@ -46,7 +46,7 @@
     },
     {
       "breed": "Sharpei",
-      "age": "4",
+      "age": "4 Years",
       "size": "Medium",
       "picture":"https://images.pexels.com/photos/16353649/pexels-photo-16353649/free-photo-of-blue-sharpei.jpeg",
       "name": "Elvis",
@@ -55,7 +55,7 @@
     },
     {
       "breed": "Chihuahua",
-      "age": "3",
+      "age": "3 Years",
       "size": "Small",
       "picture":"https://images.pexels.com/photos/1933464/pexels-photo-1933464.jpeg",
       "name": "Lola",
@@ -64,7 +64,7 @@
     },
     {
       "breed": "Pomeranian",
-      "age": "1",
+      "age": "1 Year",
       "size": "Small",
       "picture":"https://images.pexels.com/photos/3687770/pexels-photo-3687770.jpeg",
       "name": "Amy",
@@ -73,7 +73,7 @@
     },
     {
       "breed": "Dachshund",
-      "age": "4",
+      "age": "4 Years",
       "size": "Small",
       "picture":"https://images.pexels.com/photos/895257/pexels-photo-895257.jpeg",
       "name": "Marly",
@@ -81,8 +81,8 @@
       "gender": "Male"
     },
     {
-      "breed": "FrenchBulldog",
-      "age": "1",
+      "breed": "French Bulldog",
+      "age": "1 Year",
       "size": "Small",
       "picture":"https://images.pexels.com/photos/776078/pexels-photo-776078.jpeg",
       "name": "Arnie",

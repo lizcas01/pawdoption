@@ -43,7 +43,7 @@ const routes = {
     },
     "/apply": {
         name: "Apply",
-        thumbnail: "https://a-static.besthdwallpaper.com/australian-shepherd-dog-wallpaper-1920x1280-54743_38.jpg",
+        thumbnail: "https://images.pexels.com/photos/7210278/pexels-photo-7210278.jpeg",
         component: <Apply />,
         displayInNav: true,
         displayParallax: true

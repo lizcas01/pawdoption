@@ -20,9 +20,7 @@ const About = () => {
           <h1>About Us</h1>
         </Col>
       </Row>
-
       <hr />
-
       <Row className="align-items-center my-5 justify-content-evenly">
         <Col md={4} >
           <p>Our commitment extends beyond just matching people with dogs; we are passionate about transforming lives and building lasting relationships. Through our user-friendly interface, extensive network of trusted rescue organizations, and comprehensive adoption resources, we aim to make the process of finding and adopting a dog a seamless and rewarding experience.</p>
