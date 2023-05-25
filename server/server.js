@@ -6,7 +6,7 @@ const { typeDefs, resolvers } = require('./schemas');
 const db = require('./config/connection');
 const stripe = require('stripe')('sk_test_51N9HY7Ggv41H9K2AMU9Ssooe1aPIPmVh9gQQyZ3igQdpFkDcIfUoXQC6jCAXam5KJRCcppwxeRyvINyPj2mAbUKk00ZRgRNR7U')
 
-const YOUR_DOMAIN = 'http://localhost:3000'
+const YOUR_DOMAIN = process.env.YOUR_DOMAIN || 'http://localhost:3000'
 
 const PORT = process.env.PORT || 3001;
 const app = express();
