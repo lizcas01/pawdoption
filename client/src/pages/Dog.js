@@ -1,23 +1,37 @@
-import React, { } from 'react';
-import { Container, Row, Col } from 'react-bootstrap';
+import React, { useState } from 'react';
+import { Container, Row, Col, Button, Modal } from 'react-bootstrap';
+
+import DogModal from '../components/DogModal';
 
 import { useQuery } from '@apollo/client';
 
 import { QUERY_DOGS } from '../utils/queries';
 
-// const styles = {
-//   images: {
-//     height: "200px",
-//     width: "300px",
-//     borderRadius: "10px",
-//     boxShadow: "0px 50px 70px rgba(0,0,0, 0.1)"
-
-//   }
-// }
+const styles = {
+  card: {
+    display: 'flex',
+    alignItems: 'center',
+  },
+  image: {
+    height: "200px",
+    width: "300px",
+    borderRadius: "10px",
+    boxShadow: "0px 50px 70px rgba(0,0,0, 0.1)",
+    margin: "10px",
+  },
+}
 
 
 
 const DogsList = () => {
+  const [selectedDog, setSelectedDog] = useState(false);
+  const handleModalOpen = (dog) => {
+    setSelectedDog(dog);
+  };
+
+  const handleModalClose = () => {
+    setSelectedDog(false);
+  };
 
   const { loading, data } = useQuery(QUERY_DOGS);
 
@@ -25,12 +39,7 @@ const DogsList = () => {
     return <div>Loading...</div>;
   }
 
-  // if (error) {
-  //   return <div>Error: {error.message}</div>;
-  // }
-
   const dogs = data?.dogs;
-  console.log(data);
 
   return (
 
@@ -41,19 +50,32 @@ const DogsList = () => {
         </Col>
       </Row>
 
-      {dogs && dogs.map((dog) => (
-        <Col key={dog._id} className="text-center">
-          <div className="card mb-3">
-            {/* <img src={dog.picture} alt={dog.name} style={styles.images} /> */}
-            <div className="card-body">
-              <h4 className="card-title">{dog.name}</h4>
-              <p className="card-text">Breed: {dog.breed}</p>
-              <p className="card-text">Age: {dog.age}</p>
-              <p className="card-text">Age: {dog.size}</p>
+      <div id="modal-root">
+        {dogs && dogs.map((dog) => (
+
+          <Col key={dog._id} className="text-center">
+            <div className="card mb-3 flex-row" style={styles.card}>
+              <img src={dog.picture} alt={dog.name} style={styles.image} />
+              <div className="card-body">
+                <h4 className="card-title">{dog.name}</h4>
+                <p className="card-text">Breed: {dog.breed}</p>
+                <p className="card-text">Age: {dog.age}</p>
+                <Button
+                  variant="outline-primary"
+                  onClick={() => handleModalOpen(dog)}
+                >See More Info
+                </Button>
+              </div>
             </div>
-          </div>
-        </Col>
-      ))}
+          </Col>
+        ))}
+
+      </div>
+
+      {selectedDog &&  (
+          <DogModal isOpen={selectedDog} onClose={handleModalClose} dog={selectedDog}
+          />
+        )}
     </Container>
   )
 }

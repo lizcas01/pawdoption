@@ -12,7 +12,6 @@ const resolvers = {
     },
     dogs: async () => {
       const dog = await Dog.find();
-      console.log(dog);
       return dog;
     },
     dog: async (parent, { dogId }) => {
