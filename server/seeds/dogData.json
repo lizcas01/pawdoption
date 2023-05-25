@@ -1,7 +1,7 @@
 [
   {
     "breed": "Golden Retriever",
-    "age": "2",
+    "age": "2 Years",
     "size": "Large",
     "picture":"https://images.pexels.com/photos/2253275/pexels-photo-2253275.jpeg",
     "name": "Rover",
@@ -10,7 +10,7 @@
   },
   {
     "breed": "Pitbull",
-    "age": "4",
+    "age": "4 Year",
     "size": "Large",
     "picture":"https://images.pexels.com/photos/6662721/pexels-photo-6662721.jpeg",
     "name": "Ollie",
@@ -19,7 +19,7 @@
   },
   {
     "breed": "Lab",
-    "age": "1",
+    "age": "1 Year",
     "size": "Medium",
     "picture":"",
     "name": "Annie",
@@ -28,7 +28,7 @@
   },
   {
     "breed": "German Shepard",
-    "age": "6",
+    "age": "6 Months",
     "size": "Large",
     "picture":"",
     "name": "Rexi",
@@ -37,7 +37,7 @@
   },
   {
     "breed": "Bichon Frise",
-    "age": "2",
+    "age": "2 Years",
     "size": "Small",
     "picture":"",
     "name": "Max",
@@ -46,12 +46,11 @@
   },
   {
     "breed": "Sharpay",
-    "age": "4",
+    "age": "4 Years",
     "size": "Medium",
     "picture":"",
     "name": "Elvis",
     "description": "Very sweet dog is a little nervous around little kids, but super loving and is fully trained!",
     "gender": "Male"
-  }
-
+    }
 ]

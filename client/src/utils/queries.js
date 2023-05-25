@@ -20,6 +20,7 @@ export const QUERY_DOGS = gql`
       size
       description
       gender
+      picture
     }
   }
   `;
