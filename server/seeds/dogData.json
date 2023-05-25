@@ -1,57 +1,93 @@
 [
-  {
-    "breed": "Golden Retriever",
-    "age": "2",
-    "size": "Large",
-    "picture":"https://images.pexels.com/photos/2253275/pexels-photo-2253275.jpeg",
-    "name": "Rover",
-    "description": "Super energetic and friendly dog! Great with kids!",
-    "gender": "Male"
-  },
-  {
-    "breed": "Pitbull",
-    "age": "4",
-    "size": "Large",
-    "picture":"https://images.pexels.com/photos/6662721/pexels-photo-6662721.jpeg",
-    "name": "Ollie",
-    "description": "Home trained dog, shy at first but is a complete goofball when he warms up!",
-    "gender": "Male"
-  },
-  {
-    "breed": "Lab",
-    "age": "1",
-    "size": "Medium",
-    "picture":"",
-    "name": "Annie",
-    "description": "Fun loving gal, loves kids, cats, and cuddles!",
-    "gender": "Female"
-  },
-  {
-    "breed": "German Shepard",
-    "age": "6",
-    "size": "Large",
-    "picture":"",
-    "name": "Rexi",
-    "description": "Super chill and laid back, house trained!",
-    "gender": "Female"
-  },
-  {
-    "breed": "Bichon Frise",
-    "age": "2",
-    "size": "Small",
-    "picture":"",
-    "name": "Max",
-    "description": "Fun loving little guy, loves treats and can do tricks!",
-    "gender": "Male"
-  },
-  {
-    "breed": "Sharpay",
-    "age": "4",
-    "size": "Medium",
-    "picture":"",
-    "name": "Elvis",
-    "description": "Very sweet dog is a little nervous around little kids, but super loving and is fully trained!",
-    "gender": "Male"
-  }
-
-]
+    {
+      "breed": "Golden Retriever",
+      "age": "2",
+      "size": "Large",
+      "picture":"https://images.pexels.com/photos/2253275/pexels-photo-2253275.jpeg",
+      "name": "Rover",
+      "description": "Super energetic and friendly dog! Great with kids!",
+      "gender": "Male"
+    },
+    {
+      "breed": "Pitbull",
+      "age": "4",
+      "size": "Large",
+      "picture":"https://images.pexels.com/photos/6662721/pexels-photo-6662721.jpeg",
+      "name": "Ollie",
+      "description": "Home trained dog, shy at first but is a complete goofball when he warms up!",
+      "gender": "Male"
+    },
+    {
+      "breed": "Lab",
+      "age": "1",
+      "size": "Medium",
+      "picture":"https://images.pexels.com/photos/2742261/pexels-photo-2742261.jpeg",
+      "name": "Annie",
+      "description": "Fun loving gal, loves kids, cats, and cuddles!",
+      "gender": "Female"
+    },
+    {
+      "breed": "German Shepard",
+      "age": "6",
+      "size": "Large",
+      "picture":"https://images.pexels.com/photos/333083/pexels-photo-333083.jpeg",
+      "name": "Rexi",
+      "description": "Super chill and laid back, house trained!",
+      "gender": "Female"
+    },
+    {
+      "breed": "Bichon Frise",
+      "age": "2",
+      "size": "Small",
+      "picture":"https://images.pexels.com/photos/16109762/pexels-photo-16109762/free-photo-of-bichon-frise-standing-on-a-tree-trunk.png",
+      "name": "Max",
+      "description": "Fun loving little guy, loves treats and can do tricks!",
+      "gender": "Male"
+    },
+    {
+      "breed": "Sharpei",
+      "age": "4",
+      "size": "Medium",
+      "picture":"https://images.pexels.com/photos/16353649/pexels-photo-16353649/free-photo-of-blue-sharpei.jpeg",
+      "name": "Elvis",
+      "description": "Very sweet dog is a little nervous around little kids, but super loving and is fully trained!",
+      "gender": "Male"
+    },
+    {
+      "breed": "Chihuahua",
+      "age": "3",
+      "size": "Small",
+      "picture":"https://images.pexels.com/photos/1933464/pexels-photo-1933464.jpeg",
+      "name": "Lola",
+      "description": "Playful and full of energy! Loves to play with her dog toys.",
+      "gender": "Female"
+    },
+    {
+      "breed": "Pomeranian",
+      "age": "1",
+      "size": "Small",
+      "picture":"https://images.pexels.com/photos/3687770/pexels-photo-3687770.jpeg",
+      "name": "Amy",
+      "description": "Fun spirited and very playful little ball of energy! You will never be bored with her!",
+      "gender": "Female"
+    },
+    {
+      "breed": "Dachshund",
+      "age": "4",
+      "size": "Small",
+      "picture":"https://images.pexels.com/photos/895257/pexels-photo-895257.jpeg",
+      "name": "Marly",
+      "description": "The chillest dog you will ever meet, loves to nap and cuddle all day!",
+      "gender": "Male"
+    },
+    {
+      "breed": "FrenchBulldog",
+      "age": "1",
+      "size": "Small",
+      "picture":"https://images.pexels.com/photos/776078/pexels-photo-776078.jpeg",
+      "name": "Arnie",
+      "description": "The best companion always full of energy and exploring!",
+      "gender": "Male"
+    }
+  
+  ]
