@@ -18,7 +18,7 @@ const typeDefs = gql`
     last_name: String!
     phone_number: String
     email: String
-    dog: Dog! 
+    dogId: ID
   }
 
   type Dog {
@@ -58,7 +58,7 @@ const typeDefs = gql`
       last_name: String!
       phone_number: String
       email: String
-      dogId: ID! 
+      dogId: ID!
     ): AdoptionForm
     login(email: String!, password: String!): Auth
     addDog(
