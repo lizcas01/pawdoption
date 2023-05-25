@@ -53,6 +53,12 @@ const Apply = () => {
 
   return (
     <Container className="p-3">
+      <Row>
+        <Col className="text-center">
+          <h1>Apply to Adopt </h1>
+        </Col>
+      </Row>
+      <hr />
       <form onSubmit={handleSubmit}>
         <Row>
           <Col className="form-group">

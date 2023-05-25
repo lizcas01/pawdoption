@@ -2,30 +2,25 @@ import { Container, Row, Col, Card, Button, Carousel, Image } from 'react-bootst
 import { FaHandsHelping, FaHome } from "react-icons/fa";
 import { BiDonateHeart } from "react-icons/bi";
 
+import { useQuery } from '@apollo/client';
+
+import { QUERY_DOGS } from '../utils/queries';
+
 const Home = () => {
 
+  const { data } = useQuery(QUERY_DOGS);
 
-  // TODO: Remove this mock data and replace it with the data from the database
-  const dogs = [
-    {
-      name: "Buddy",
-      breed: "Labrador Retriever",
-      age: 3,
-      image: "https://static.stacker.com/s3fs-public/2022-05/lab-puppy-smiling.jpg"
+  const dogs = data?.dogs;
+
+  const styles = {
+    image: {
+      maxWidth: "100%",
+      height: "350px",
+      borderRadius: "10px",
+      objectFit: "cover",
     },
-    {
-      name: "Bella",
-      breed: "German Shepherd",
-      age: 1,
-      image: "https://t4.ftcdn.net/jpg/04/75/62/59/360_F_475625971_HTK8MdH194iKiPdBGVHUxPJWNgDHJZEQ.jpg"
-    },
-    {
-      name: "Max",
-      breed: "Golden Retriever",
-      age: 5,
-      image: "https://cdn.wallpapersafari.com/3/81/POUSu9.jpg"
-    },
-  ]
+  }
+
 
   return (
     <Container className="my-3">
@@ -41,40 +36,40 @@ const Home = () => {
       <Row>
         <Col sm={4} >
           <Card style={{ border: "none" }} className="h-100 m-0 text-center align-items-center">
-            <FaHandsHelping style={{fontSize: "40px"}} className="text-primary"/>
+            <FaHandsHelping style={{ fontSize: "40px" }} className="text-primary" />
             <Card.Body>
               <Card.Title>Get Involved</Card.Title>
               <Card.Text>
                 Help us give our canine homes.
               </Card.Text>
-              <Button variant="outline-primary" href="/about" style={{textDecoration: 'none'}}>See More</Button>
+              <Button variant="outline-primary" href="/about" style={{ textDecoration: 'none' }}>See More</Button>
             </Card.Body>
           </Card>
         </Col>
 
         <Col sm={4} >
           <Card style={{ border: "none" }} className="h-100 m-0 text-center align-items-center">
-            <FaHome style={{fontSize: "40px"}} className="text-primary"/>
+            <FaHome style={{ fontSize: "40px" }} className="text-primary" />
             <Card.Body>
               <Card.Title>Adopt</Card.Title>
               <Card.Text>
                 Find your new best friend today!
               </Card.Text>
-              <Button variant="outline-primary" href="/dogs" style={{textDecoration: 'none'}}>Adopt Now</Button>
+              <Button variant="outline-primary" href="/dogs" style={{ textDecoration: 'none' }}>Adopt Now</Button>
             </Card.Body>
           </Card>
         </Col>
 
         <Col sm={4} >
-          <Card style={{ border: "none"}} className="h-100 m-0 text-center align-items-center">
-            <BiDonateHeart style={{fontSize: "40px"}} className="text-primary" />
+          <Card style={{ border: "none" }} className="h-100 m-0 text-center align-items-center">
+            <BiDonateHeart style={{ fontSize: "40px" }} className="text-primary" />
             <Card.Body>
               <Card.Title>Donate</Card.Title>
               <Card.Text>
                 You can make a difference.
               </Card.Text>
               <form action="/create-checkout-session" method="POST">
-                <Button variant= "outline-primary"type="submit">Donate</Button>
+                <Button variant="outline-primary" type="submit">Donate</Button>
               </form>
             </Card.Body>
           </Card>
@@ -85,20 +80,19 @@ const Home = () => {
         <Col lg={6}>
           <h2 className="text-center">Our Pals</h2>
           <Carousel>
-            {dogs.map((dog, index) => (
+            {dogs && dogs.map((dog, index) => (
               <Carousel.Item key={index}>
-                {/* TODO link to dog */}
-                <a href="#">
-                <Image 
-                  className="d-block w-100"
-                  src={dog.image}
-                  alt={dog.name}
-                  href={`/dog/${dog.name}`}
-                />
+                <a href="/dogs">
+                  <Image
+                    style={styles.image}
+                    className="d-block w-100"
+                    src={dog.picture}
+                    alt={dog.name}
+                  />
                 </a>
-                <Carousel.Caption style={{background: "rgb(0 0 0 / 30%)", borderRadius: "5px", padding: 0}}>
+                <Carousel.Caption style={{ background: "rgb(0 0 0 / 30%)", borderRadius: "5px", padding: 0 }}>
                   <h3>{dog.name}</h3>
-                  <p>{dog.age} year{dog.age > 1 ? "s" : ""} old {dog.breed}</p>
+                  <p>{dog.age} Old {dog.gender} {dog.breed}</p>
                 </Carousel.Caption>
               </Carousel.Item>
             ))}

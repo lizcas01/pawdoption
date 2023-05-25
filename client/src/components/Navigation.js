@@ -6,7 +6,7 @@ const Navigation = (props) => {
   const styles = {
     navWidth: {
       width: 'inherit',
-      maxWidth: '600px',
+      maxWidth: '700px',
     },
     active: {
       color: 'black',
