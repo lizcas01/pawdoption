@@ -25,7 +25,7 @@ export const ADD_USER = gql`
 `;
 
 export const ADD_DOG = gql`
-mutation AddDog( $name: String!, $breed: String!, $age: String!, $size: String!, $description: String!, $gender: String!, $picture: String) {
+mutation AddDog( $name: String!, $breed: String!, $age: String!, $size: String!, $description: String!, $gender: String!, $picture: String!) {
   addDog( name: $name, breed: $breed, age: $age, size: $size, description: $description, gender: $gender, picture: $picture) {
       token
       dog {

@@ -4,6 +4,19 @@ import { Modal, Button } from 'react-bootstrap';
 const DogModal = ({ isOpen, onClose, dog }) => {
     if (!isOpen) return null;
 
+    const styles = {
+        card: {
+          display: 'flex',
+          alignItems: 'center',
+        },
+        image: {
+          height: "200px",
+          width: "300px",
+          borderRadius: "10px",
+          boxShadow: "0px 50px 70px rgba(0,0,0, 0.1)",
+          margin: "10px",
+        },
+      }
    
 
     return (
@@ -12,6 +25,7 @@ const DogModal = ({ isOpen, onClose, dog }) => {
                 <Modal.Title className="w-100 text-center">{dog.name}</Modal.Title>
             </Modal.Header>
             <Modal.Body className="text-center">
+                <img src={dog.picture} alt={dog.name} style={styles.image}/>
                 <p>{dog.gender} {dog.breed}</p>
                 <p>Age: {dog.age}</p>
                 <p>Size: {dog.size}</p>

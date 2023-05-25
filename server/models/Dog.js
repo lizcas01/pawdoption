@@ -28,7 +28,7 @@ const dogSchema = new Schema({
   },
   picture: {
     type: String,
-    required: false,
+    required: true,
   }
 });
 

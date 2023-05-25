@@ -28,8 +28,8 @@ const typeDefs = gql`
     age: String!
     size: String!
     gender: String!
-    picture: String
     description: String!
+    picture: String!
   }
 
   type Dogs {
@@ -37,10 +37,10 @@ const typeDefs = gql`
     breed: String!
     age: Int!
     size: String!
-    picture: String!
     name: String!
     description: String!
     gender: String!
+    picture: String!    
   }
 
   type Query {
@@ -67,8 +67,8 @@ const typeDefs = gql`
       age: String!
       size: String!
       gender: String!
-      picture: String
       description: String!
+      picture: String!
     ): Dog
   }
 `;
