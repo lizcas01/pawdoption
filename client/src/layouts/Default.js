@@ -4,6 +4,7 @@ import Jumbotron from '../components/Jumbotron';
 import Navigation from "../components/Navigation"
 import Home from "../pages/Home"
 import About from "../pages/About"
+import DogsList from "../pages/Dog"
 import Login from '../pages/Login';
 import NotFound from '../pages/NotFound';
 import Footer from "../components/Footer"
@@ -30,6 +31,13 @@ const routes = {
         name: "About",
         thumbnail: "https://a-static.besthdwallpaper.com/australian-shepherd-dog-wallpaper-1920x1280-54743_38.jpg",
         component: <About />,
+        displayInNav: true,
+        displayParallax: true
+    },
+    "/dogs": {
+        name: "Adoptable Dogs",
+        thumbnail: "https://images.pexels.com/photos/9632843/pexels-photo-9632843.jpeg",
+        component: <DogsList />,
         displayInNav: true,
         displayParallax: true
     },

@@ -1,120 +1,114 @@
-import React from 'react';
-import { Container, Row, Col, Section, P } from 'react-bootstrap';
-
-const styles = {
-  Container: {
-    height: "500",
-    width: "300px",
-  },
-}
+import React, { useState } from 'react';
+import { useMutation, useQuery } from '@apollo/client';
+import { Container, Row, Col, Alert } from 'react-bootstrap';
+import { ADD_ADOPTION_FORM } from '../utils/mutations';
+import { QUERY_DOGS } from '../utils/queries';
+import authService from '../utils/auth';
 
 const Apply = () => {
-    return (
-      <Container className="p-3">
-  
+  const [firstName, setFirstName] = useState('');
+  const [lastName, setLastName] = useState('');
+  const [phoneNumber, setPhoneNumber] = useState('');
+  const [email, setEmail] = useState('');
+  const [selectedDog, setSelectedDog] = useState('');
+  const [submitted, setSubmitted] = useState(false);
+  const [userLoggedIn, setUserLoggedIn] = useState(authService.loggedIn());
+
+  const { data } = useQuery(QUERY_DOGS);
+
+  const [addAdoptionForm] = useMutation(ADD_ADOPTION_FORM);
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+
+    // Check if the user is logged in
+    if (!userLoggedIn) {
+      console.log('User is not logged in.');
+      return;
+    }
+
+    try {
+      await addAdoptionForm({
+        variables: {
+          firstName,
+          lastName,
+          phoneNumber,
+          email,
+          dogId: selectedDog,
+        },
+      });
+      console.log('Form Submitted');
+      console.log('Submitted form data:', {
+        firstName,
+        lastName,
+        phoneNumber,
+        email,
+        dogId: selectedDog,
+      });
+      setSubmitted(true); // Set the submitted state to true
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  return (
+    <Container className="p-3">
+      <form onSubmit={handleSubmit}>
         <Row>
-          <Col className="text-center">
-            <h1>Apply Today!</h1>
+          <Col className="form-group">
+            <label className="form-label"><b>First Name</b></label>
+            <input className="form-control" placeholder="Enter Legal First Name" value={firstName} onChange={(e) => setFirstName(e.target.value)} />
           </Col>
-        </Row>
-        
-        <Row>
-          <Col class="form-group">
-            <label class="form-label"><b>Full Name</b></label>
-            <input class="form-control" placeholder="Enter Legal First Name"></input>
-          </Col>
-          <Col class="form-group">
-            <label class="form-label"><b>Date of Birth</b></label>
-            <input class="form-control" placeholder="Ex: 12/03/1983"></input>
-          </Col>
-        </Row>
-        
-        <Row>
-          <Col class="form-group">
-            <label class="form-label"><b>Phone Number</b></label>
-            <input class="form-control" placeholder="Ex: (111) 111-1111"></input>
-          </Col>
-          <Col class="form-group">
-            <label class="form-label"><b>Email</b></label>
-            <input class="form-control"></input>
+          <Col className="form-group">
+            <label className="form-label"><b>Last Name</b></label>
+            <input className="form-control" placeholder="Enter Last Name" value={lastName} onChange={(e) => setLastName(e.target.value)} />
           </Col>
         </Row>
 
         <Row>
-          <Col class="form-group">
-            <label class="form-label"><b>Address</b></label>
-            <input class="form-control" placeholder="Street Address"></input>
+          <Col className="form-group">
+            <label className="form-label"><b>Phone Number</b></label>
+            <input className="form-control" placeholder="Enter Phone Number" value={phoneNumber} onChange={(e) => setPhoneNumber(e.target.value)} />
+          </Col>
+          <Col className="form-group">
+            <label className="form-label"><b>Email</b></label>
+            <input className="form-control" placeholder="Enter Email" value={email} onChange={(e) => setEmail(e.target.value)} />
           </Col>
         </Row>
-        
+
         <Row>
-          <Col class="form-group">
-            <label class="form-label"></label>
-            <input class="form-control" placeholder="City"></input>
-          </Col>
-          <Col class="form-group">
-            <label class="form-label"></label>
-            <input class="form-control" placeholder="State"></input>
-          </Col>
-          <Col class="form-group">
-            <label class="form-label"></label>
-            <input class="form-control" placeholder="Postal/Zip Code"></input>
-          </Col>
           <Col>
-            <label class="form-label"></label>
-            <input class="form-control" placeholder="Country"></input>
+            <label className="form-label"><b>Select Dog</b></label>
+            <select
+              className="form-control"
+              value={selectedDog}
+              onChange={(e) => setSelectedDog(e.target.value)}
+            >
+              <option value="">Select a dog</option>
+              {data && data.dogs.map((dog) => (
+                <option key={dog._id} value={dog._id}>{dog.name}</option>
+              ))}
+            </select>
           </Col>
         </Row>
 
-        <Row>
-          <Col class="form-group">
-            <label class="form-label"><b>Name and ages of all residents in your home</b></label>
-            <input class="form-control"></input>
-          </Col>
-        </Row>
-       
-        <Row> 
-          <Col class="form-group">
-            <label class="form-label"><b>List any other pets currently living in your home</b></label>
-            <input class="form-control"></input>
-          </Col>
-        </Row>
-        
-        <Row>
-          <Col class="form-group">
-            <label class="form-label"><b>Have you ever owned or fosterd a dog before?</b></label>
-            <input type="checkbox"></input>
-            <label></label>
-          </Col>
-        </Row>
+        {submitted ? (
+          <Row className="form-group">
+            <button type="submit" className="btn btn-success btn-lg btn-block" disabled>Form submitted successfully</button>
+          </Row>
+        ) : (
+          <Row className="form-group">
+            {userLoggedIn ? (
+              <button type="submit" className="btn btn-secondary btn-lg btn-block">Submit</button>
+            ) : (
+              <button type="submit" className="btn btn-secondary btn-lg btn-block" disabled>You must be logged in to submit this form</button>
+            )}
+          </Row>
+        )}
 
-        <Row>
-          <Col class="form-group">
-            <label class="form-label"><b>By checking the box below, you understand the terms of this form and adoptee. You hereby agree that you will not use this animal in any sort of fighting, breeding, or cruelty. You will love and care for this animal for the rest of its life, and you are ready to commit to that. You also agree, that if for any circumstances you can no longer provide love and care for this animal, you will contact an admin of the group and explain your situation before taking the animal to a shelter.</b></label>
-            <input type="checkbox"></input>
-            <label></label>
-          </Col>
-        </Row>
-
-        <Row>
-          <Col class="form-group">
-            <label class="form-label"><b>Print Name</b></label>
-            <input class="form-control"></input>
-          </Col>
-          <Col class="form-group">
-            <label class="form-label"><b>Date</b></label>
-            <input class="form-control" placeholder="Ex: 05/17/2023"></input>
-          </Col>
-        </Row>
-
-        <Row class="form-group">
-              <button type="button" class="btn btn-secondary btn-lg btn-block">Submit</button>
-              <label class="form-label"></label>
-        </Row>
-        
-
-      </Container>
-    );
+      </form>
+    </Container>
+  );
 };
 
 export default Apply;

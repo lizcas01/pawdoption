@@ -9,3 +9,17 @@ export const QUERY_USER = gql`
     }
   }
 `;
+
+export const QUERY_DOGS = gql`
+  query dogs {
+    dogs {
+      _id
+      name
+      breed
+      age
+      size
+      description
+      gender
+    }
+  }
+  `;

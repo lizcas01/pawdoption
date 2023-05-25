@@ -3,7 +3,7 @@ import { FaHandsHelping, FaHome } from "react-icons/fa";
 import { BiDonateHeart } from "react-icons/bi";
 
 const Home = () => {
-  
+
 
   // TODO: Remove this mock data and replace it with the data from the database
   const dogs = [
@@ -47,7 +47,7 @@ const Home = () => {
               <Card.Text>
                 Help us give our canine homes.
               </Card.Text>
-              <Button variant="outline-primary">Go somewhere</Button>
+              <Button variant="outline-primary" href="/about" style={{textDecoration: 'none'}}>See More</Button>
             </Card.Body>
           </Card>
         </Col>
@@ -60,7 +60,7 @@ const Home = () => {
               <Card.Text>
                 Find your new best friend today!
               </Card.Text>
-              <Button variant="outline-primary">Go somewhere</Button>
+              <Button variant="outline-primary" href="/dogs" style={{textDecoration: 'none'}}>Adopt Now</Button>
             </Card.Body>
           </Card>
         </Col>
