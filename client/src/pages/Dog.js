@@ -41,6 +41,7 @@ const DogsList = () => {
 
   const dogs = data?.dogs;
 
+
   return (
 
     <Container>
@@ -50,8 +51,10 @@ const DogsList = () => {
         </Col>
       </Row>
 
+
       <div id="modal-root">
         {dogs && dogs.map((dog) => (
+
 
           <Col key={dog._id} className="text-center">
             <div className="card mb-3 flex-row" style={styles.card}>
@@ -72,10 +75,10 @@ const DogsList = () => {
 
       </div>
 
-      {selectedDog &&  (
-          <DogModal isOpen={selectedDog} onClose={handleModalClose} dog={selectedDog}
-          />
-        )}
+      {selectedDog && (
+        <DogModal isOpen={selectedDog} onClose={handleModalClose} dog={selectedDog}
+        />
+      )}
     </Container>
   )
 }
